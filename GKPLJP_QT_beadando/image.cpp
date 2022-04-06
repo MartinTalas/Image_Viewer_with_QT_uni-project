@@ -1,6 +1,6 @@
 #include "image.h"
 
-imgmanager::Image::Image(std::string arg_path, std::string arg_name, std::list<std::string> arg_categories, std::list<std::string> arg_tags):
+imgmanager::Image::Image(QString& arg_path, QString& arg_name, QList<QString>& arg_categories, QList<QString>& arg_tags):
     path(arg_path),
     name(arg_name),
     categories(arg_categories),
@@ -10,44 +10,44 @@ imgmanager::Image::Image(std::string arg_path, std::string arg_name, std::list<s
 }
 
 //getters
-std::string imgmanager::Image::getPath()
+QString imgmanager::Image::getPath()
 {
     return path;
 }
 
-std::string imgmanager::Image::getName()
+QString imgmanager::Image::getName()
 {
     return name;
 }
 
-std::list<std::string> imgmanager::Image::getCategories()
+QList<QString> imgmanager::Image::getCategories()
 {
     return categories;
 }
 
-std::list<std::string> imgmanager::Image::getTags()
+QList<QString> imgmanager::Image::getTags()
 {
     return tags;
 }
 
 //add
-void imgmanager::Image::addCategory(std::string& arg_category)
+void imgmanager::Image::addCategory(QString& arg_category)
 {
     categories.push_back(arg_category);
 }
 
-void imgmanager::Image::addTag(std::string& arg_tag)
+void imgmanager::Image::addTag(QString& arg_tag)
 {
     tags.push_back(arg_tag);
 }
 
 //remove
-void imgmanager::Image::removeCategory(std::string& arg_category)
+void imgmanager::Image::removeCategory(QString& arg_category)
 {
-    categories.remove(arg_category);
+    categories.removeOne(arg_category);
 }
 
-void imgmanager::Image::removeTag(std::string& arg_tag)
+void imgmanager::Image::removeTag(QString& arg_tag)
 {
-    tags.remove(arg_tag);
+    tags.removeOne(arg_tag);
 }

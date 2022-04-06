@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QPixmap>
 #include "image.h"
+#include "fileparser.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,15 +22,24 @@ public:
 private slots:
     void on_actionOpen_triggered();
 
+    void on_actionSave_triggered();
+
 private:
     Ui::MainWindow *ui;
+
+    //messages
+    QString message_text;
     //storage
-    std::list<imgmanager::Image> storage;
+    QList<imgmanager::Image> storage;
+
+    //file parser
+    parser::FileParser file_parser;
+
+    //save data
+    void saveData();
 
     //load data
     void loadData();
 
-    //save data
-    void saveData();
 };
 #endif // MAINWINDOW_H

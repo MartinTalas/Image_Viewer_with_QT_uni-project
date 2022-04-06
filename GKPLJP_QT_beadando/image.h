@@ -1,22 +1,23 @@
 #ifndef IMAGE_H
 #define IMAGE_H
 
+#include <QString>
+#include <QList>
+#include <QTextStream>
 #include <iostream>
-#include <string>
-#include <list>
 
 namespace imgmanager
 {
     class Image
     {
     private:
-        std::string path;
-        std::string name;
-        std::list<std::string> categories;
-        std::list<std::string> tags;
+        QString path;
+        QString name;
+        QList<QString> categories;
+        QList<QString> tags;
 
     public:
-        Image(std::string arg_path, std::string arg_name, std::list<std::string> arg_categories, std::list<std::string> arg_tags);
+        Image(QString& arg_path, QString& arg_name, QList<QString>& arg_categories, QList<QString>& arg_tags);
 
         //setters
         //void setPath(std::string arg_path);
@@ -25,18 +26,18 @@ namespace imgmanager
         //void setTags(std::list<std::string> arg_tags);
 
         //getters
-        std::string getPath();
-        std::string getName();
-        std::list<std::string> getCategories();
-        std::list<std::string> getTags();
+        QString getPath();
+        QString getName();
+        QList<QString> getCategories();
+        QList<QString> getTags();
 
         //add
-        void addCategory(std::string& arg_category);
-        void addTag(std::string& arg_tag);
+        void addCategory(QString& arg_category);
+        void addTag(QString& arg_tag);
 
         //remove
-        void removeCategory(std::string& arg_category);
-        void removeTag(std::string& arg_tag);
+        void removeCategory(QString& arg_category);
+        void removeTag(QString& arg_tag);
     };
 }
 #endif // IMAGE_H
